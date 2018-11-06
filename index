@@ -1,0 +1,501 @@
+<?php include "./Tech30Lib.php"; ?>
+
+
+
+<?php
+setcookie('visitcount',1+$_COOKIE['visitcount'], time() + (86400 * 365), "/");
+$visitcount = $_COOKIE['visitcount'];
+print "Number of views: ".$visitcount;
+
+
+$cookie_name = "pageviews";
+$cookie_value = "count";
+setcookie($cookie_name, $cookie_value, time() + (86400 * 365), "/"); // 86400 = 1 day
+
+?>
+
+
+
+<!DOCTYPE html>
+<html>
+    <!-- What would bags do? -->
+<head>
+    <link rel="stylesheet" type="text/css" href="finalcss.css">
+<title>him too.</title>
+<script>
+function getStyle(id, property) {
+    var e = document.getElementById(id);
+    if (e === null) {
+        alert("There is no element with the id: \"" + id + "\" in this document.");
+        return null;
+    }
+    var strValue = "";
+
+    // non-IE
+    if (window.getComputedStyle) {
+        strValue = getComputedStyle(e).getPropertyValue(property);
+    }
+    //IE
+    else if (e.currentStyle) {
+        try {
+            strValue = e.currentStyle[property];
+        }
+        catch (e) {
+            alert("The element with id: " + id + " does not contain a style property: " + property);
+        }
+    }
+
+    return strValue;
+}
+
+function setStyle(id, property, value) {
+    var e = document.getElementById(id);
+    if (e === null) {
+        alert("There is no element with the id: \"" + id + "\" in this document.");
+        return null;
+    }
+    var cmd = "document.getElementById('" + id + "').style." + camelCase(property) + "='" + value + "';";
+    eval(cmd);
+
+    function camelCase(str) {
+        return str.replace(/\-([a-z])/gi, function(match, p1) { // p1 references submatch in parentheses
+            return p1.toUpperCase(); // convert first letter after "-" to uppercase
+        });
+    }
+}
+
+    function toggleOverlay() { 
+        var uniqueVariable = getStyle("overlay", "display");
+        if (uniqueVariable == "none") {
+            setStyle("overlay", "display", "block");
+            setStyle("overlay", "z-index", "1");
+            setStyle("below", "display", "none");
+            setStyle("blow", "display", "none");
+            setStyle("bow", "display", "none");
+        }
+        else if (uniqueVariable == "block") {
+            console.log('just unvariabled');
+            setStyle("overlay", "display", "none");
+            setStyle("overlay", "z-index", "1000");
+            setStyle("below", "display", "block");
+            setStyle("blow", "display", "block");
+            setStyle("bow", "display", "block");
+        }
+    }
+    function toggleResourcesOverlay() { 
+        var uniqueVariable = getStyle("resourcesOverlay", "display");
+        // var vir = getStyle("donationsOverlay", "display");
+        if (uniqueVariable == "none") {
+            setStyle("resourcesOverlay", "display", "block");
+            setStyle("resourcesOverlay", "z-index", "1");
+        }
+        else if (uniqueVariable == "block") {
+            console.log('just unvariabled');
+            setStyle("resourcesOverlay", "display", "none");
+            setStyle("resourcesOverlay", "z-index", "1000");
+        }
+        // if(vir == "block" && uniqueVariable == "none"){
+        //     setStyle("donationsOverlay", "display", "none");
+        //     setStyle("donationsOverlay", "z-index", "1000");
+        //     setStyle("resourcesOverlay", "display", "block");
+        //     setStyle("resourcesOverlay", "z-index", "1");
+        // }
+    }
+    // function toggleDonationsOverlay() { 
+    //     var uniqueVariable = getStyle("donationsOverlay", "display");
+    //     var vir = getStyle("resourcesOverlay", "display");
+    //     if (uniqueVariable == "none") {
+    //         setStyle("donationsOverlay", "display", "block");
+    //         setStyle("donationsOverlay", "z-index", "1");
+    //     }
+    //     else if (uniqueVariable == "block") {
+    //         console.log('just unvariabled');
+    //         setStyle("donationsOverlay", "display", "none");
+    //         setStyle("donationsOverlay", "z-index", "1000");
+    //     }
+    // }
+    </script>
+<meta name="description" content="Assignment ">
+<meta name="keywords" content="HTML, CSS, Example">
+<meta name="Author" content="Nobody">
+</head>
+<body>
+    <div id="header">
+    <div  id="himtoo">
+    <h1 id="himm"><a class="links" id="linky" style="color: white; text-decoration: none;position: absolute; top: -20px;" href="himtoo.php">him too.</a></h1>
+    
+    
+    <div>
+        
+        <h5 id="resources" onclick="toggleResourcesOverlay();">RESOURCES</h5>
+        
+    </div>
+    <a href="https://donate.rainn.org"><div id="donate"><h6 id="donations">DONATE</h6></div></a>
+    </div>
+    <a href="https://www.facebook.com/him.too.7737"><image id="facebook" alt="Facebook Image" src="https://cdn.techgyd.com/50-Best-Facebook-Logo-Icons-GIF-Transparent-PNG-Images-54.png"></image></a>
+        <a href="https://twitter.com/HimToo8"><image id="twitter" alt="Twitter Image" src="./newtwitt.png"></image></a>
+    
+    </div>
+    <a href="https://www.instagram.com/himtoo112/?hl=en"><image id="instagram" src="https://ubisafe.org/images/instagram-transparent-5.png" alt="Instagram Photo"></image></a>
+    
+    
+    <img id="yep" alt="image not available" src="himmtoo.jpg">
+    <!--retake the fucking video-->
+    
+    <div id="quote">
+        Men Are Assaulted Too.
+    </div>
+    <!--The fact written below is complete bullshit btw. Im just making fun of the stupid things me too says-->
+    <div id="randomstat">
+        Roughly 16% of all sexual assault cases reported in 2016 were filed by men.
+    </div>
+    <div id="recruit">
+        Join the movement to support the men that have been sexually assaulted in the U.S.
+    </div>
+    <div id="blow">
+    <div id="vision">
+        Our Vision
+    </div>
+    <div id="p1"><p>The 'him too.' movement was founded in 2018 to help male survivors of sexual violence,<span id="middle"> particularly straight white cisgender males from white wealthy communities</span>, find pathways to healing. Our vision from the beginning was to address both the scarcity in resources for male survivors of sexual violence and to build a community of people who care about male rights, driven by survivors, who will be at the front line for creating solutions to stop sexual violence against men in their communities. </p>
+<p>Within 1 week I built this entire website to make fun of the me too. movement because they think that all sexual violence victims are female and that even without evidence a man can be proven guilty. I created this website to show the humor in saying things that are obviously not true and I hope one day this website will bring in some serious traffic to get my cause out into the public.</p>
+<p>Our goal is also to reframe and expand the global conversation around sexual violence to also support the fact that men are also sexually violated. Our target demographic is middle aged white males who are cisgender and straight. We want perpetrators that are actually proven guilty to be held accountable and we want to actually do something about the assaults that are happening to our demographic.</p></div>
+</div>
+    
+    <?php
+    $sub = getValue('Enter');
+    $email = getValue('email');
+    $phone = getValue('phone');
+    $companyName = "Him Too";
+    $test1 = false;
+    $test2 = false;
+    $test3 = false;
+    ?>
+    <!--&nbsp;-->
+    <div id="bow">
+    <?php startForm('post', $_SERVER['PHP_SELF'], "form");?>
+    </div>
+    <span id="address">Email Address * </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="phon">Phone Number* </span><br><input class="input" type="text" name="email" size=INF maxLength=INF placeholder="emailname@yourdomain.com" value="<?php echo getValue($email) ?>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="input" type="text" name="phone" size=INF maxLength=INF placeholder="xxxxxxxxxx" value="<?php echo getValue($phone) ?>"><br><br>
+    <p id="terms">By submitting the form you sign the Terms and Conditions(link below) saying that you are not a liberal trying to sign up for my right leaning website.</p>
+    <button id=tacbutton type="button" onclick="toggleOverlay();">Terms & Conditions</button>
+    
+    
+    
+    
+    
+    
+    
+    <!--you need to make the terms and conditions button not reload the page and you need to format the location and style of the terms and conditions button and the submit button. also you need to make the email and phone buttons  dissapear after the submit button is pushed.
+    
+    -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <?php
+    makeSubmit('Sign Up', 'Submit', 'suby');
+    endForm();
+    if (ispost() == true) {
+        if (strpos($email, ".com") == false || strpos($email, "@") == false) {
+            echo "<span class=\"subtext\">Please enter an email with a .com in it and an @ symbol in it</span>";
+            $test1 = false;
+        }
+        else
+            $test1 = true;
+        if (strlen($phone) != 10 || strcspn($phone, '`~!@#$%^&*()_+=-[]\|}{\'";:,<.>/?ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz') != strlen($phone)) {
+            echo "<span class=\"sububtext\">Phone number contains invalid characters or is not in the correct format</span>";
+            $test2 = false;
+        }
+        else
+            $test2 = true;
+        if ($test1 == true) {
+            if ($test2 == true) {
+                    echo "<span class=\"subububtext\">Thanks for signing up!</span>";
+            }
+        }
+    }
+    ?>
+    
+    
+    
+    
+    
+    
+    
+    
+    <div id="resourcesOverlay">
+        <div id="header2">
+    <div  id="himtoo2">
+    <h1 id="himm2"><a class="links" id="linky2" style="color: white; text-decoration: none;position: absolute; top: -20px;" href="himtoo.php">him too.</a></h1>
+    
+    
+    <div onclick="location.reload();">
+        
+        <h5 id="resources2">RESOURCES</h5>
+        
+    </div>
+    <a href="https://donate.rainn.org"> <div id="donate2"><h6 id="donations">DONATE</h6></div></a>
+    </div>
+    <a href="https://www.facebook.com/him.too.7737"><image id="facebook2" alt="Facebook Image" src="https://cdn.techgyd.com/50-Best-Facebook-Logo-Icons-GIF-Transparent-PNG-Images-54.png"></image></a>
+        <a href="https://twitter.com/HimToo8"><image id="twitter2" alt="Twitter Image" src="./newtwitt.png"></image></a>
+    
+    </div>
+    <a href="https://www.instagram.com/himtoo112/?hl=en"><image id="instagram2" src="https://ubisafe.org/images/instagram-transparent-5.png" alt="Instagram Photo"></image></a>
+    
+    <h2 id="retitle">
+        Resources<hr><br>
+    </h2><hr>
+    
+    <div id="rainn" class="thing">
+        <h4 class="rtitle">RAINN - Sexual Assault For Men and Boys</h4>
+        <p>This resource offers a helpline, many different thought processes fro differnet scenarios, and many support tactics to help you through your traumatization.</p>
+        <a class="rlinks" id="rain" href="https://www.rainn.org/articles/sexual-assault-men-and-boys">Website</a>
+    </div>
+    
+    <div class="thing" id="in6">
+        <h4 class="rtitle">1in6 - Sexual Abuse and assault</h4>
+        <p>This website helps you talk to a professional who can help you through your trauma. Don't be surprised if the wait for a call is pretty long. Millions of men are sexually assaulted every year and are seeking help.</p>
+        <a class="rlinks" href="https://1in6.org/">Website</a>
+    </div>
+    <div class="thing" id="rainn2">
+        <h4 class="rtitle">RAINN - Online Weekly Anonymous Support Groups</h4>
+        <p>This is an online support group that can help you to overcome your truma of being sexually assaulted in America as a male.</p>
+        <a class="rlinks" href="https://hotline.rainn.org/1in6/terms-of-service.jsp">Website</a>
+    </div>
+    <div class="thing" id="assas">
+        <h4 class="rtitle">AASAS(Association of Alberta Sexual Assault Services)</h4>
+        <p>This website shows you many statistics for sexual assault cases in America on top of many myths that come around how stigma in America sees sexual violence against men in the United States. In addition, this website shows common impacts that male survivors and shows you how to supptort someone who has been sexually assaulted. </p>
+        <a class="rlinks" href="https://aasas.ca/support-and-information/men-and-sexual-assault/">Website</a><br><br><br>
+    </div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!--<div id="donationsOverlay">-->
+    <!--    <div id="header3">-->
+    <!--<div  id="himtoo3">-->
+    <!--<h1 id="himm2"><a class="links" id="linky3" style="color: white; text-decoration: none;position: absolute; top: -20px;" href="https://www.pumatech.org/shared/shared/93e063cdb7e2fcb56739fd377a1849bf/himtoo.php">him too.</a></h1>-->
+    
+    
+    <!--<div onclick="toggleResourcesOverlay();">-->
+        
+    <!--    <h5 id="resources3">RESOURCES</h5>-->
+        
+    <!--</div>-->
+    <!--<div id="donate3" onclick="location.reload();"><h6 id="donations3">DONATE</h6></div>-->
+    <!--</div>-->
+    <!--<a href="https://www.facebook.com/him.too.7737"><image id="facebook3" alt="Facebook Image" src="https://cdn.techgyd.com/50-Best-Facebook-Logo-Icons-GIF-Transparent-PNG-Images-54.png"></image></a>-->
+    <!--    <a href="https://twitter.com/HimToo8"><image id="twitter3" alt="Twitter Image" src="./newtwitt.png"></image></a>-->
+    
+    <!--</div>-->
+    <!--<a href="https://www.instagram.com/himtoo112/?hl=en"><image id="instagram3" src="https://ubisafe.org/images/instagram-transparent-5.png" alt="Instagram Photo"></image></a>-->
+    
+    <!--</div>-->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div id="overlay">
+        <button id="exit1" class="exitbutton" type="button" onclick="toggleOverlay();">X</button>
+        <h2>Welcome to Him Too</h2>
+	<p>These terms and conditions outline the rules and regulations for the use of Him Too's Website.</p> <br /> 
+	<span style="text-transform: capitalize;"> Him Too</span> is located at:<br /> 
+	<address>Louisville<br />Colorado - 80027, United States<br />
+	</address>
+	<p>By accessing this website we assume you accept these terms and conditions in full. Do not continue to use Him Too's website 
+	if you do not accept all of the terms and conditions stated on this page.</p>
+	<p>The following terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer Notice
+	and any or all Agreements: "Client", "You" and "Your" refers to you, the person accessing this website
+	and accepting the Company's terms and conditions. "The Company", "Ourselves", "We", "Our" and "Us", refers
+	to our Company. "Party", "Parties", or "Us", refers to both the Client and ourselves, or either the Client
+	or ourselves. All terms refer to the offer, acceptance and consideration of payment necessary to undertake
+	the process of our assistance to the Client in the most appropriate manner, whether by formal meetings
+	of a fixed duration, or any other means, for the express purpose of meeting the Client's needs in respect
+	of provision of the Company's stated services/products, in accordance with and subject to, prevailing law
+	of United States. Any use of the above terminology or other words in the singular, plural,
+	capitalisation and/or he/she or they, are taken as interchangeable and therefore as referring to same.</p><h2>Cookies</h2>
+	<p>We employ the use of cookies. By using Him Too's website you consent to the use of cookies 
+	in accordance with Him Too's privacy policy.</p><p>Most of the modern day interactive web sites
+	use cookies to enable us to retrieve user details for each visit. Cookies are used in some areas of our site
+	to enable the functionality of this area and ease of use for those people visiting. Some of our 
+	affiliate / advertising partners may also use cookies.</p><h2>License</h2>
+	<p>Unless otherwise stated, Him Too and/or it's licensors own the intellectual property rights for
+	all material on Him Too. All intellectual property rights are reserved. You may view and/or print
+	pages from http://www.him-too.com for your own personal use subject to restrictions set in these terms and conditions.</p>
+	<p>You must not:</p>
+	<ol>
+		<li>Republish material from http://www.him-too.com</li>
+		<li>Sell, rent or sub-license material from http://www.him-too.com</li>
+		<li>Reproduce, duplicate or copy material from http://www.him-too.com</li>
+	</ol>
+	<p>Redistribute content from Him Too (unless content is specifically made for redistribution).</p>
+<h2>Hyperlinking to our Content</h2>
+	<ol>
+		<li>The following organizations may link to our Web site without prior written approval:
+			<ol>
+			<li>Government agencies;</li>
+			<li>Search engines;</li>
+			<li>News organizations;</li>
+			<li>Online directory distributors when they list us in the directory may link to our Web site in the same
+				manner as they hyperlink to the Web sites of other listed businesses; and</li>
+			<li>Systemwide Accredited Businesses except soliciting non-profit organizations, charity shopping malls,
+				and charity fundraising groups which may not hyperlink to our Web site.</li>
+			</ol>
+		</li>
+	</ol>
+	<ol start="2">
+		<li>These organizations may link to our home page, to publications or to other Web site information so long
+			as the link: (a) is not in any way misleading; (b) does not falsely imply sponsorship, endorsement or
+			approval of the linking party and its products or services; and (c) fits within the context of the linking
+			party's site.
+		</li>
+		<li>We may consider and approve in our sole discretion other link requests from the following types of organizations:
+			<ol>
+				<li>commonly-known consumer and/or business information sources such as Chambers of Commerce, American
+					Automobile Association, AARP and Consumers Union;</li>
+				<li>dot.com community sites;</li>
+				<li>associations or other groups representing charities, including charity giving sites,</li>
+				<li>online directory distributors;</li>
+				<li>internet portals;</li>
+				<li>accounting, law and consulting firms whose primary clients are businesses; and</li>
+				<li>educational institutions and trade associations.</li>
+			</ol>
+		</li>
+	</ol>
+	<p>We will approve link requests from these organizations if we determine that: (a) the link would not reflect
+	unfavorably on us or our accredited businesses (for example, trade associations or other organizations
+	representing inherently suspect types of business, such as work-at-home opportunities, shall not be allowed
+	to link); (b)the organization does not have an unsatisfactory record with us; (c) the benefit to us from
+	the visibility associated with the hyperlink outweighs the absence of <?=$companyName?>; and (d) where the
+	link is in the context of general resource information or is otherwise consistent with editorial content
+	in a newsletter or similar product furthering the mission of the organization.</p>
+
+	<p>These organizations may link to our home page, to publications or to other Web site information so long as
+	the link: (a) is not in any way misleading; (b) does not falsely imply sponsorship, endorsement or approval
+	of the linking party and it products or services; and (c) fits within the context of the linking party's
+	site.</p>
+
+	<p>If you are among the organizations listed in paragraph 2 above and are interested in linking to our website,
+	you must notify us by sending an e-mail to <a href="mailto:himtoo112@gmail.com" title="send an email to himtoo112@gmail.com">himtoo112@gmail.com</a>.
+	Please include your name, your organization name, contact information (such as a phone number and/or e-mail
+	address) as well as the URL of your site, a list of any URLs from which you intend to link to our Web site,
+	and a list of the URL(s) on our site to which you would like to link. Allow 2-3 weeks for a response.</p>
+
+	<p>Approved organizations may hyperlink to our Web site as follows:</p>
+
+	<ol>
+		<li>By use of our corporate name; or</li>
+		<li>By use of the uniform resource locator (Web address) being linked to; or</li>
+		<li>By use of any other description of our Web site or material being linked to that makes sense within the
+			context and format of content on the linking party's site.</li>
+	</ol>
+	<p>No use of Him Too’s logo or other artwork will be allowed for linking absent a trademark license
+	agreement.</p>
+<h2>Iframes</h2>
+	<p>Without prior approval and express written permission, you may not create frames around our Web pages or
+	use other techniques that alter in any way the visual presentation or appearance of our Web site.</p>
+<h2>Reservation of Rights</h2>
+	<p>We reserve the right at any time and in its sole discretion to request that you remove all links or any particular
+	link to our Web site. You agree to immediately remove all links to our Web site upon such request. We also
+	reserve the right to amend these terms and conditions and its linking policy at any time. By continuing
+	to link to our Web site, you agree to be bound to and abide by these linking terms and conditions.</p>
+<h2>Removal of links from our website</h2>
+	<p>If you find any link on our Web site or any linked web site objectionable for any reason, you may contact
+	us about this. We will consider requests to remove links but will have no obligation to do so or to respond
+	directly to you.</p>
+	<p>Whilst we endeavour to ensure that the information on this website is correct, we do not warrant its completeness
+	or accuracy; nor do we commit to ensuring that the website remains available or that the material on the
+	website is kept up to date.</p>
+<h2>Content Liability</h2>
+	<p>We shall have no responsibility or liability for any content appearing on your Web site. You agree to indemnify
+	and defend us against all claims arising out of or based upon your Website. No link(s) may appear on any
+	page on your Web site or within any context containing content or materials that may be interpreted as
+	libelous, obscene or criminal, or which infringes, otherwise violates, or advocates the infringement or
+	other violation of, any third party rights.</p>
+<h2>Disclaimer</h2>
+	<p>To the maximum extent permitted by applicable law, we exclude all representations, warranties and conditions relating to our website and the use of this website (including, without limitation, any warranties implied by law in respect of satisfactory quality, fitness for purpose and/or the use of reasonable care and skill). Nothing in this disclaimer will:</p>
+	<ol>
+	<li>limit or exclude our or your liability for death or personal injury resulting from negligence;</li>
+	<li>limit or exclude our or your liability for fraud or fraudulent misrepresentation;</li>
+	<li>limit any of our or your liabilities in any way that is not permitted under applicable law; or</li>
+	<li>exclude any of our or your liabilities that may not be excluded under applicable law.</li>
+	</ol>
+	<p>The limitations and exclusions of liability set out in this Section and elsewhere in this disclaimer: (a)
+	are subject to the preceding paragraph; and (b) govern all liabilities arising under the disclaimer or
+	in relation to the subject matter of this disclaimer, including liabilities arising in contract, in tort
+	(including negligence) and for breach of statutory duty.</p>
+	<p>To the extent that the website and the information and services on the website are provided free of charge,
+	we will not be liable for any loss or damage of any nature.</p>
+<h2>Him Too Terms and conditions</h2>
+	<p></p>
+<h2>Credit & Contact Information</h2>
+	<button class="exitbutton" type="button" id="exit2" onclick="toggleOverlay();">Exit Terms and Conditions</button>
+    </div>
+    
+    
+    
+    
+    <!--Fix the part below you fucking retard you left the fucking paragraph the same dipass.-->
+    
+    <div id="below">
+    <div id="p2">
+<p>In 2018, someone founded the<span class="highlight"> him too.</span> movement to help male survivors of sexual violence find pathways to healing. Using the idea of "innocent until proven guilty," the<span class="highlight"> him too.</span> movement was ultimately created to maek sure survivors aware that they're not alone in their path to redemption.</p><p>The<span class="highlight"> him too.</span> movement was built by a community of people who thought the me too movement sucked. By bringing up conversations about sexual violence against men into the mainstream media, we're helping to show that men can be sexually violated too and to show that innocent until proven guilty is only fair for the alleged assaulters. Ultimately, with men at the forefront of this movement, we're aiding the fight to end sexual violence against men.</p>
+</div>
+<br><br>
+<div id="footer"><footer>
+    <p><a id="eml" href="mailto:himtoo112@gmail.com" target="_blank">Email Us Here</a></p><br><br>
+    <p id="designed">Designed by: An anonymous person</p>
+    </footer>
+</div>
+</div>
+</body>
+<!--		-->
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
